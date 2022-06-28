@@ -27,24 +27,28 @@ int main(int argc, char* argv[])
     double tier2price;
     double tier3price;
     double totalCost;
-
-        
+    
     //Inputs
     cout << "Enter the kilowatt hours: ";
-    cin >> kwH;
-    if (cin.fail() || kwH < 0)
-    {
-        cout << "The first number entered was either non-numeric or less than zero" << endl;
-        return 1;
-    }
-    cout << "The first number " << kwH << " was greater than zero" << endl;
-    
+        cin >> kwH;
+        try
+        {
+            if (!cin)
+                throw 0;
+            if (kwH < 0)
+                throw 0;
+        }
+        catch (int errID)
+        {
+            cout << "Error: " << errID << ", kWh must be a positive number and numeric" << endl;
+            return 1;
+        } //End of the catch block
     //Process
     if (kwH <= tier1ar)
     {
         tier1price = kwH * tier1br;
         tier2price = 0.00;
-        tier3price =0.00;
+        tier3price = 0.00;
     }
     else if (tier1ar< kwH <= tier2ar)
     {
