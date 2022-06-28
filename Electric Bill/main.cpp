@@ -23,9 +23,9 @@ int main(int argc, char* argv[])
     
     //variables
     double kwH;
-    double tier1price;
-    double tier2price;
-    double tier3price;
+    double tier1price = 0;
+    double tier2price = 0;
+    double tier3price = 0;
     double totalCost;
     
     //Inputs
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
         tier2price = 0.00;
         tier3price = 0.00;
     }
-    else if (tier1ar< kwH <= tier2ar)
+    else if (kwH > tier1ar && kwH <= tier2ar)
     {
         tier1price = tier1br * tier1ar;
         tier2price = (kwH - tier1ar)*tier2br;
@@ -62,9 +62,6 @@ int main(int argc, char* argv[])
         tier2price = tier2br * (tier2ar-tier1ar);
         tier3price = (kwH - tier2ar) * tier3br;
     }
-    else
-        cout << "The input is invalid" << endl;
-    
     //Compute
         
         totalCost = tier1price + tier2price + tier3price + ctax;
@@ -75,7 +72,7 @@ int main(int argc, char* argv[])
         cout << setprecision(2); // 2 digits past the decimal point
         cout << "The total cost of Tier1 is: $ "<< tier1price <<endl;
         cout << "The total cost of Tier2 is: $ "<< tier2price <<endl;
-        cout << "The total cost of Tier2 is: $ "<< tier3price <<endl;
+        cout << "The total cost of Tier3 is: $ "<< tier3price <<endl;
         cout << "The total cost of energy is: $ "<< totalCost << endl;
         return 0;
 
