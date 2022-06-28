@@ -2,7 +2,7 @@
 C++ Programming version of the game
 Name: Christian Millar
 Date: 27 June 2022
- CIS054
+CIS054
 Inputs: kwH
 Output: total cost of energy tiers
 */
@@ -28,16 +28,17 @@ int main(int argc, char* argv[])
     double tier3price;
     double totalCost;
 
-    
+        
     //Inputs
     cout << "Enter the kilowatt hours: ";
     cin >> kwH;
-    if (kwH < 0)
-        {
-            cout << "The kilowatt hours cannot be negative" <<endl;
-            cout << "Enter the kilowatt hours: ";
-            cin >> kwH;
-        }
+    if (cin.fail() || kwH < 0)
+    {
+        cout << "The first number entered was either non-numeric or less than zero" << endl;
+        return 1;
+    }
+    cout << "The first number " << kwH << " was greater than zero" << endl;
+    
     //Process
     if (kwH <= tier1ar)
     {
