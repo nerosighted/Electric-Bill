@@ -2,8 +2,9 @@
 C++ Programming version of the game
 Name: Christian Millar
 Date: 27 June 2022
-Inputs: player1 and player2 - (R)ock, (P)aper, or (S)cissors
-Output: Winner of the round
+ CIS054
+Inputs: kwH
+Output: total cost of energy tiers
 */
 
 #include <iostream>
